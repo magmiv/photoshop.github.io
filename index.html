@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript</title>
+	<link rel="stylesheet" type="text/css" href="sass/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<!--<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
+	<!--[if lt IE 9]>
+		 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="new-image">
+		<div class="resizer"></div>
+	</div>	
+	
+	<div class="newRectangle"></div>
+
+	<!-- Главное меню со всеми настройками -->
+	<div class="main-menu drop-down">
+		<div class="drop-down_header__wrap">
+			<div class="drop-down_header"></div>
+		</div>
+
+		<div class="drop-down_list">
+
+			<ul class="group-of-lists">
+				<li onclick="document.querySelector('.create-new-canvas').classList.add('active')">Создать</li>
+				<li onclick="">Загрузить</li>
+				<li onclick="save()">Сохранить</li>
+			</ul>
+
+			<ul class="group-of-lists">
+				<li>Справка</li>
+			</ul>
+
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- Настройки инстументов, верхняя линия -->
+	<div class="top-tools-panel">
+
+
+
+					<div class="tool active">
+
+						<p class="description-of-setting">Цвет1:</p>
+						<input type="color" class="color-form" id="paint-color">
+
+						<p class="description-of-setting">Толщина:</p>
+						<div class="wrapper-of-text-tool-setting">
+
+							<div class="input-with-range">
+								<input type="text" class="text-form" value="100%" id="paint-width">
+								<div class="block__open-range"></div>
+								<input type="range" class="range" min="1" max="100" step="1" value="100">
+							</div>
+
+						</div>
+
+						<p class="description-of-setting">Жесткость:</p>
+						<div class="wrapper-of-text-tool-setting">
+							<div class="input-with-range">
+
+								<input type="text" class="text-form" value="100%">
+								<div class="block__open-range"></div>
+								<input type="range" class="range" min="1" max="100" step="1" value="100">
+
+							</div>
+						</div>
+
+					</div>
+
+
+
+
+
+
+
+
+						<div class="tool">
+
+							<p class="description-of-setting">Толщина:</p>
+							<div class="wrapper-of-text-tool-setting">
+
+								<div class="input-with-range">
+									<input type="text" class="text-form" value="100%" id="rubber-width">
+									<div class="block__open-range"></div>
+									<input type="range" class="range" min="1" max="100" step="1" value="100">
+								</div>
+
+							</div>
+
+							<p class="description-of-setting">Жесткость:</p>
+							<div class="wrapper-of-text-tool-setting">
+								<div class="input-with-range">
+
+									<input type="text" class="text-form" value="100%">
+									<div class="block__open-range"></div>
+									<input type="range" class="range" min="1" max="100" step="1" value="100">
+
+								</div>
+							</div>
+
+						</div>
+
+					
+
+
+
+
+						<div class="tool">
+
+							<p class="description-of-setting">Цвет:</p>
+							<input type="color" class="color-form" id="text-color">
+
+							<p class="description-of-setting">Размер:</p>
+							<div class="wrapper-of-text-tool-setting">
+
+								<div class="input-with-range">
+									<input type="text" class="text-form" value="100%" id="text-width">
+									<div class="block__open-range"></div>
+									<input type="range" class="range" min="1" max="100" step="1" value="100" id="text-width-range">
+								</div>
+
+							</div>
+
+						</div>
+
+
+
+
+						<div class="tool">
+
+							<p class="description-of-setting">Цвет заливки:</p>
+							<input type="color" class="color-form" id="rectangle-color">
+
+							<p class="description-of-setting">Цвет рамки:</p>
+							<input type="color" class="color-form" id="rectangle-border-color">
+	
+							<p class="description-of-setting">Толщина рамки:</p>
+							<div class="wrapper-of-text-tool-setting">
+	
+								<div class="input-with-range">
+									<input type="text" class="text-form" value="1%" id="rectangle-border-width">
+									<div class="block__open-range"></div>
+									<input type="range" class="range" min="0" max="100" step="1" value="1">
+								</div>
+	
+							</div>
+	
+	
+						</div>
+
+
+		</div>
+
+
+
+
+
+
+	<!-- Инструменты, боковая линия -->
+	<div class="left-tools-panel">
+
+		<div class="tools-icon active" id="paint">
+			<p class="fas">•</p>
+		</div>
+
+		<div class="tools-icon" id="rubber">
+			<p class="fas">•</p>
+		</div>
+
+		<div class="tools-icon" id="text">
+			<p class="fas">•</p>
+		</div>
+
+		<div class="tools-icon" id="rectangle">
+			<p class="fas">•</p>
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<!-- CANVAS -->
+	<canvas class="holst" width="300" height="300"></canvas>
+
+
+
+
+
+	<!-- СЛОИ -->
+	<div class="block-of-layers">
+
+		<div class="block-of-layers__change-cords">
+			<div class="close"></div>
+		</div>
+
+
+		<div class="wrapper-of-layers-and-scrollbar">
+
+
+			<div class="wrapper-of-layers">
+
+				<div class="layer">
+					<div class="eye"></div>
+					<p class="layer-name">Прямоугольник</p>
+				</div>
+				<div class="layer">
+					<div class="eye"></div>
+					<p class="layer-name">Прямоугольник</p>
+				</div>
+
+			</div>
+
+
+
+			<div class="layer-scrollbar">
+				<div class="layer-scrollbar__thumb"></div>
+			</div>
+
+		</div>
+
+
+		<div class="panel-of-layer-instruments">
+			<div class="layer-instrument"></div>
+			<div class="layer-instrument"></div>
+			<div class="layer-instrument"></div>
+			<div class="layer-instrument"></div>
+			<div class="layer-instrument"></div>
+		</div>
+
+		<div class="block-of-layers__change-height">
+			<p>|||||||||||</p>
+		</div>
+
+	</div>
+
+	<div class="block-of-layers__open"></div>
+
+
+
+
+
+	<!-- ВСПЛЫВАЮЩИЕ МЕНЮ -->
+	<div class="create-new-canvas">
+
+		<div class="header">
+			<div class="drag-and-drop" onclick=""></div>
+			<div class="close" onclick="document.querySelector('.create-new-canvas').classList.remove('active')"></div>
+		</div>
+
+		<div class="input_wrap name">
+			<p>Имя:</p> <input type="text" value="Без имени" id="holst-name">
+		</div>
+		<div class="input_wrap">
+			<p>Ширина:</p> <input type="text" class='create-new-canvas__input-number' id="holst-width">
+		</div>
+		<div class="input_wrap">
+			<p>Высота:</p> <input type="text" class='create-new-canvas__input-number' id="holst-heigth">
+		</div>
+		<input type="button" value="OK" class="ok" onclick="createNewCanvas()">
+
+	</div>
+
+
+
+
+
+
+	<script type="text/javascript" src='js/instruments.js'></script>
+	<script type="text/javascript" src='js/htmlelements.js'></script>
+	<script type="text/javascript" src='js/functions.js'></script>
+</body>
+
+</html>

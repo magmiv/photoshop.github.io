@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* Дописать стили для стандартного вида меню. Остальные виды - исключения */
+.drop-down .drop-down_header__wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 20px; }
+  .drop-down .drop-down_header__wrap .drop-down_header {
+    width: 100px;
+    height: 20px;
+    background-color: #fff; }
+
+.drop-down .drop-down_list {
+  position: absolute;
+  display: none;
+  z-index: 20;
+  padding: 0 3px;
+  border: 1px solid #A7A7A7;
+  -webkit-box-shadow: 0 0 1px #111111;
+          box-shadow: 0 0 1px #111111;
+  background-color: #EEEEEE;
+  color: #000000;
+  font-family: arial;
+  font-weight: 100;
+  font-size: 12px; }
+  .drop-down .drop-down_list.active {
+    display: block; }
+  .drop-down .drop-down_list .group-of-lists {
+    list-style-type: none;
+    padding: 0 0 5px 0;
+    margin-top: 3px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #A7A7A7; }
+    .drop-down .drop-down_list .group-of-lists:last-child {
+      border-bottom: none;
+      margin-bottom: -2px; }
+    .drop-down .drop-down_list .group-of-lists li {
+      padding: 2px 7px;
+      cursor: pointer; }
+      .drop-down .drop-down_list .group-of-lists li p {
+        margin: 0; }
+      .drop-down .drop-down_list .group-of-lists li:hover {
+        background-color: #0074E8;
+        color: #EDF5FF; }
+
+.main-menu {
+  position: absolute;
+  z-index: 999;
+  -webkit-box-shadow: 0 -1px 2px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 -1px 2px 1px rgba(0, 0, 0, 0.4); }
+  .main-menu .drop-down_header__wrap {
+    width: 40px;
+    height: 40px;
+    background-color: #5A5A5A; }
+    .main-menu .drop-down_header__wrap .drop-down_header {
+      width: 23px;
+      height: 23px;
+      background-color: #fff; }
+  .main-menu .drop-down_list {
+    width: 120px; }

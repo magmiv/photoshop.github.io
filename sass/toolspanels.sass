@@ -1,0 +1,188 @@
+.top-tools-panel
+	width: 100%
+	height: 40px
+	background-color: #5A5A5A
+	box-shadow: 0 0 2px 1px rgba(0,0,0, 0.4)
+	position: fixed
+	display: flex
+	z-index: 998
+
+
+
+
+// Один из инструментов
+.tool
+	padding-left: 40px
+	display: none
+	align-items: center
+	height: 100%
+	&.active
+		display: flex
+
+
+	/* Текст перед свойством */
+	.description-of-setting
+		color: #fff
+		font-size: 10px
+		margin-right: 7px
+		margin-left: 16px
+		font-family: arial
+		text-shadow: 0 0px 1px #000
+		font-weight: 700
+
+
+
+
+	// Все цветовые формы
+	.color-form
+		padding: 0
+		border: 1px solid #303030
+		height: 18px
+		width: 28px
+		box-shadow: 0 0 1px 1px rgba(255,255,255,0.1)
+
+
+
+
+	// Все текстовые формы. В том числе формы, содержащие в себе range
+	.wrapper-of-text-tool-setting
+		display: flex
+		height: 17px
+		width: 60px
+		border: 1px solid #303030
+		background-color: #3F3F3F
+		box-shadow: 0 0 1px 1px rgba(255,255,255,0.1)
+		border-radius: 0 3px 3px 0
+
+		.text-form
+			height: 15px
+			width: 37px
+			background-color: #3F3F3F
+			border: none
+			color: #fff
+			font-size: 10px
+			font-family: arial
+			font-weight: 100
+			padding-left: 3px
+
+
+
+
+
+
+	// RANGE
+	.input-with-range
+		display: flex
+
+	// Блок для открытия range
+	.block__open-range
+		background: linear-gradient(180deg, #757575, #636363)
+		border-left: 1px solid#202020
+		border-top: 1px solid #919191
+		height: 16px
+		width: 17px
+		border-radius: 2px 3px 3px 0
+
+		&::after
+			content: ""
+			position: relative
+			left: 6px
+			top: 10px
+			border: 3px solid transparent
+			border-top: 3px solid #E9E9E9
+
+		&.active
+			background: linear-gradient(180deg, #3F3F3F, #424242)
+			border-top: 1px solid transparent
+
+
+
+	// Стиллизация ползунков
+	.range
+		display: none
+		width: 120px
+		position: absolute
+		margin-top: 19px
+		margin-left: -63px
+		background-color: #5F5F5F
+		border: 1px solid #383838
+		&.active
+			display: block !important
+
+
+	input[type=range]
+		-webkit-appearance: none
+		&:focus
+			outline: none
+			// Линия для ползунка
+		&::-moz-range-track
+			width: 85%
+			height: 18%
+			background: linear-gradient(0, #484848, #333333)
+			border-radius: 3px
+			border: 1px solid #303030
+			// Ползунок
+		&::-moz-range-thumb
+			background: url(../imgs/polzunock.png) center center no-repeat
+			background-size: 100%
+			width: 27px
+			height: 27px
+			cursor: pointer
+			border: none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.left-tools-panel
+	width: 40px
+	height: 100%
+	display: flex
+	flex-direction: column
+	align-items: center
+	padding-top: 45px
+	position: fixed
+	z-index: 997
+	background-color: #5A5A5A
+	box-shadow: 0 0 2px 1px rgba(0,0,0, 0.4)
+
+	.tools-icon
+		width: 27px
+		height: 20px
+		margin-top: 4px
+		border-radius: 2px
+		display: flex
+		justify-content: center
+		align-items: center
+		cursor: pointer
+
+	.tools-icon:hover
+		height: 19px
+		border-top: 1px solid #919191
+		background: linear-gradient(0, #626262, #7E7E7E)
+		box-shadow: 0 0 1px 1px rgba(35,35,35,0.8)
+
+	.tools-icon.active
+		cursor: default
+		background: linear-gradient(-45deg, #3f3f3f, #363636)
+		box-shadow: inset 0 0 3px rgba(0,0,0, 1)
+		outline: 1px solid rgba(145,145,145,0.2)
+		&:hover
+			height: 20px
+			border-top: none
+	.fas
+		color: #B9B9B9
