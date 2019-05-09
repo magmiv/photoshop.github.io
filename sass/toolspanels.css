@@ -178,6 +178,7 @@
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .left-tools-panel .tools-icon:hover {
