@@ -228,8 +228,6 @@ canvas.onclick = function(e) {
 	getActiveTool()
 	if (activeTool == 'text' && !hasInput) {
 		addInput(e.pageX, e.pageY);
-		textNow.x = e.offsetX
-		textNow.y = e.offsetY
 	}
 }
 
@@ -237,7 +235,7 @@ function addInput(x, y) {
 	input.value  = ''   
 	input.size = '1'
 	input.oninput = function () {
-	  input.size = input.value.length || 1
+		input.size = input.value.length || 1
 	}
 	input.type = 'text';
 	input.classList.add('form-without-border')
@@ -250,6 +248,8 @@ function addInput(x, y) {
 	document.body.appendChild(input);
 	input.focus();  
 	hasInput = true;
+	inp = DragdownElem(input,input)
+
 }
 
 
@@ -277,7 +277,12 @@ function handleEnter(e) {
 	var keyCode = e.keyCode;
 	if (keyCode === 13) {
 		 ctx.fillStyle = textColorBlock.value;
-		 drawText(ctx, this.value, textNow.x + 2, textNow.y + 6 - textSizeBlock.value.slice(0, textSizeBlock.value.length-1)/2);
+
+		 textNow.x = parseInt(getComputedStyle(input).left) - holst.getBoundingClientRect().left
+		 textNow.y = parseInt(getComputedStyle(input).top)  - holst.getBoundingClientRect().top
+	
+
+		 drawText(ctx, this.value, textNow.x + 2, textNow.y + 15 - textSizeBlock.value.slice(0, textSizeBlock.value.length-1)/2);
 		 this.remove()
 		 hasInput = false;
 	}
