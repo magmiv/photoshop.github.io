@@ -243,7 +243,7 @@ function addInput(x, y) {
 	input.classList.add('form-without-border')
 	input.style.position = 'absolute';
 	input.style.left = (x) + 'px';
-	input.style.top = (y - textSizeBlock.value.slice(0, textSizeBlock.value.length-1)/2) + 'px';
+	input.style.top = (y - textSizeBlock.value.slice(0, textSizeBlock.value.length-1)/2) + 2 + 'px';
 	input.style.fontSize = textSizeBlock.value.slice(0, textSizeBlock.value.length-1)+'px'
 	input.style.color = textColorBlock.value
 	input.onkeydown = handleEnter;    
